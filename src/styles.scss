@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+    @font-face {
+      font-family: 'Avenir';
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url(./assets/fonts/AvenirLTStd-Roman.woff) format('woff');
+    }
+
+    @font-face {
+      font-family: 'AvenirArabic';
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url(./assets/fonts/AvenirArabic-SharjahGovt-Md.woff) format('woff');
+    }
+  
+html[dir="ltr"] {
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Avenir';
+}
+
+html[dir="rtl"] {
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'AvenirArabic';
+}
+
+/* For LTR languages */
+html[dir="ltr"] #popover-click-2 {
+  inset: auto 30px -35px auto !important;
+}
+html[dir="ltr"] #popover-click {
+  inset: -36px auto auto -7px !important;
+}
+html[dir="ltr"] #popover-click-1 {
+  inset: auto 23px -38px auto !important;
+}
+
+/* For RTL languages */
+html[dir="rtl"] #popover-click-2 {
+  inset: auto -251px -41px auto !important;  /* Reverse left and right */
+}
+html[dir="rtl"] #popover-click {
+  inset: -36px auto auto 23px !important;  /* Reverse left and right */
+}
+html[dir="rtl"] #popover-click-1 {
+  inset: auto -14px -38px auto !important;  /* Reverse left and right */
+}

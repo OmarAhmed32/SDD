@@ -1,0 +1,1120 @@
+<div class="mx-auto">
+  <header
+    id="header"
+    [ngClass]="{
+      'backdrop-blur-[20px]': scrolled,
+      'bg-white-transparent': !scrolled
+    }"
+    class="sticky inset-x-0 bg-white-transparent top-0 z-50 md:p-6 lg:p-6"
+  >
+    <nav
+      class="flex items-center justify-between p-6 lg:px-8"
+      aria-label="Global"
+    >
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <img
+            class="md:h-15 lg:h-15 h-11 w-auto"
+            src="../assets/images/Logo.png"
+            alt="Government of Sharjah Logo"
+          />
+        </a>
+      </div>
+      <div class="md:hidden lg:hidden lg:flex lg:flex-1 lg:justify-end">
+        <a
+          href="#"
+          class="text-sm font-semibold text-gray-900"
+          (click)="changeLanguage()"
+          >{{ language }}</a
+        >
+      </div>
+      <div class="flex lg:hidden" [class.hidden]="!isMenuOpen">
+        <button
+          type="button"
+          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          (click)="toggleMenu()"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="size-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="#" class="text-sm font-semibold text-gray-900">{{
+          "HOME" | translate
+        }}</a>
+        <a href="#" class="text-sm font-semibold text-gray-900">{{
+          "OUR_VISION" | translate
+        }}</a>
+        <a href="#" class="text-sm font-semibold text-gray-900">{{
+          "OUR_SCOPE" | translate
+        }}</a>
+        <a href="#" class="text-sm font-semibold text-gray-900">{{
+          "INTIATIVES" | translate
+        }}</a>
+        <a href="#" class="text-sm font-semibold text-gray-900">{{
+          "DOWNLOAD_CENTER" | translate
+        }}</a>
+      </div>
+
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a
+          href="#"
+          class="text-sm font-semibold text-gray-900"
+          (click)="changeLanguage()"
+          >{{ language }}</a
+        >
+      </div>
+    </nav>
+    <div
+      class="lg:hidden"
+      role="dialog"
+      aria-modal="true"
+      [class.hidden]="isMenuOpen"
+    >
+      <!-- <div class="fixed inset-0 z-50 bg-gray-500/50"></div> -->
+      <div
+        class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+      >
+        <div class="flex items-center justify-between">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Your Company</span>
+            <img class="h-8 w-auto" src="../assets/images/Logo.png" alt="" />
+          </a>
+          <div class="lg:flex lg:flex-1 lg:justify-end">
+            <a
+              href="#"
+              class="text-sm font-semibold text-gray-900"
+              (click)="changeLanguage()"
+              >{{ language }}</a
+            >
+          </div>
+          <div class="flex lg:hidden">
+            <button
+              type="button"
+              class="-m-2.5 rounded-md p-2.5 text-gray-700"
+              (click)="toggleMenu()"
+            >
+              <svg
+                class="size-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+                data-slot="icon"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+              <a
+                href="#"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                >{{ "HOME" | translate }}</a
+              >
+              <a
+                href="#"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                >{{ "OUR_VISION" | translate }}</a
+              >
+              <a
+                href="#"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                >{{ "OUR_SCOPE" | translate }}</a
+              >
+              <a
+                href="#"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                >{{ "INTIATIVES" | translate }}</a
+              >
+              <a
+                href="#"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                >{{ "DOWNLOAD_CENTER" | translate }}</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative isolate w-full hidden md:block">
+    <div class="mx-auto relative px-6">
+      <!-- Video -->
+      <video
+        muted
+        loop
+        autoplay
+        src="../assets/videos/video.mp4"
+        class="rounded-xl w-full h-auto px-1"
+      ></video>
+
+      <!-- Overlay Content -->
+      <div
+        class="absolute inset-0 space-y-6 flex items-center justify-start ps-6 md:ps-12"
+      >
+        <!-- Text Content -->
+        <div class="space-y-6 max-w-lg text-white">
+          <!-- Heading -->
+          <h1 class="md:text-xl font-bold leading-tight">
+            {{ "ESTABLISHING_SHARJAH" | translate }}
+          </h1>
+
+          <!-- Paragraph -->
+          <p class="md:text-sm leading-relaxed">
+            {{ "THERE_MANY" | translate }}
+          </p>
+        </div>
+        <div
+          class="absolute bottom-[19%] left-[20%] h-24 w-0.5 bg-gradient-to-b from-white to-transparent rtl:right-[20%] hidden md:block"
+        >
+          <a
+            data-popover-target="popover-click"
+            data-popover-trigger="click"
+            data-popover-placement="bottom-start"
+            class="relative bottom-1.5 right-10 flex h-6 w-6 rtl:left-[10.5px] rtl:right-auto"
+          >
+            <span
+              class="absolute inline-flex h-6 w-6 animate-ping rounded-full bg-green-200 opacity-75"
+            ></span>
+            <div
+              data-popover
+              id="popover-click"
+              role="tooltip"
+              class="absolute z-10 bg-transparent inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 rounded-lg opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800"
+            >
+              <div
+                class="relative bg-transparent overflow-hidden z-10 text-white rounded-lg p-4 w-72 h-56 flex flex-col justify-between shadow-lg before:content-[''] before:absolute before:bottom-[180px] before:left-[-30px] before:h-[88px] before:w-[80px] before:rounded-[20px] before:shadow-custom-gray-shadow"
+              >
+                <div class="flex flex-col justify-center items-center z-10">
+                  <h1 class="text-40 font-bold">
+                    1.2<span class="text-3xl">m</span>
+                  </h1>
+                  <p class="text-md">Active Citizen & Resident</p>
+                </div>
+                <div class="flex items-center gap-4 z-10 ps-8">
+                  <div>
+                    <img
+                      src="../assets/images/icon-512x512.png"
+                      alt="Logo"
+                      class=""
+                    />
+                  </div>
+                  <p class="text-sm">Using Sharjah Digital App</p>
+                </div>
+              </div>
+            </div>
+            <span
+              class="relative inline-flex h-6 w-6 rounded-full bg-gradient-radial from-white to-transparent"
+            ></span>
+          </a>
+        </div>
+
+        <div
+          class="absolute bottom-[8%] left-[35.333333%] transform -translate-x-1/2 h-24 w-0.5 bg-gradient-to-b from-white to-transparent rtl:right-[35.333333%] hidden md:block"
+        >
+          <a
+            data-popover-target="popover-click-1"
+            data-popover-trigger="click"
+            data-popover-placement="top-end"
+            class="relative bottom-1.5 right-10 flex h-6 w-6 rtl:left-[10.5px] rtl:right-auto"
+          >
+            <span
+              class="absolute inline-flex h-6 w-6 animate-ping rounded-full bg-green-200 opacity-75"
+            ></span>
+            <div
+              data-popover
+              id="popover-click-1"
+              role="tooltip"
+              class="absolute z-10 bg-transparent inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 rounded-lg opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800"
+            >
+              <div
+                class="relative bg-transparent overflow-hidden z-10 text-white rounded-lg p-4 w-72 h-56 flex flex-col justify-between shadow-lg before:content-[''] before:absolute before:top-[180px] before:right-[-30px] before:h-[88px] before:w-[80px] before:rounded-[20px] before:shadow-custom-gray-shadow"
+              >
+                <div class="flex flex-col justify-center items-center z-10">
+                  <h1 class="text-40 font-bold">
+                    1.2<span class="text-3xl">m</span>
+                  </h1>
+                  <p class="text-md">Active Citizen & Resident</p>
+                </div>
+                <div class="flex items-center gap-4 z-10 ps-8">
+                  <div>
+                    <img
+                      src="../assets/images/icon-512x512.png"
+                      alt="Logo"
+                      class=""
+                    />
+                  </div>
+                  <p class="text-sm">Using Sharjah Digital App</p>
+                </div>
+              </div>
+            </div>
+            <span
+              class="relative inline-flex h-6 w-6 rounded-full bg-gradient-radial from-white to-transparent"
+            ></span>
+          </a>
+        </div>
+        <div
+          class="absolute bottom-[55.666667%] left-[92%] transform -translate-x-1/2 h-24 w-0.5 bg-gradient-to-b from-white to-transparent rtl:right-[92%] hidden md:block"
+        >
+          <a
+            data-popover-target="popover-click-2"
+            data-popover-trigger="click"
+            data-popover-placement="top-end"
+            class="relative bottom-1.5 right-10 flex h-6 w-6 rtl:left-[10.5px] rtl:right-auto"
+            id="popover-test"
+          >
+            <div
+              data-popover
+              id="popover-click-2"
+              role="tooltip"
+              class="absolute z-10 bg-transparent inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 rounded-lg opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800 hidden md:block"
+            >
+              <div
+                class="relative bg-transparent overflow-hidden z-10 text-white rounded-lg p-4 w-72 h-56 flex flex-col justify-between before:content-[''] before:absolute before:top-[180px] before:right-[-30px] before:h-[88px] before:w-[80px] before:rounded-[20px] before:shadow-custom-gray-shadow rtl:before:left-[-30px] rtl:before:right-auto"
+              >
+                <div class="flex flex-col justify-center items-center z-10">
+                  <h1 class="text-40 font-bold">
+                    1.2<span class="text-3xl">m</span>
+                  </h1>
+                  <p class="text-md">Active Citizen & Resident</p>
+                </div>
+                <div class="flex items-center gap-4 z-10 ps-8">
+                  <div>
+                    <img
+                      src="../assets/images/icon-512x512.png"
+                      alt="Logo"
+                      class=""
+                    />
+                  </div>
+                  <p class="text-sm">Using Sharjah Digital App</p>
+                </div>
+              </div>
+            </div>
+            <span
+              class="relative inline-flex h-6 w-6 rounded-full bg-gradient-radial from-white to-transparent"
+            >
+              <span
+                class="absolute inline-flex h-6 w-6 animate-ping rounded-full bg-green-200 opacity-75"
+              ></span
+            ></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lg:hidden md:hidden 2xl:hidden block px-4">
+    <div class="relative conatiner mx-auto w-full h-screen">
+      <!-- Video Background -->
+      <video
+        autoplay
+        muted
+        loop
+        class="absolute top-0 left-0 w-full h-full object-cover rounded-xl px-1"
+      >
+        <source src="../assets/videos/video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Overlay Text -->
+      <div
+        class="absolute inset-0 flex flex-col justify-between items-center text-white p-6 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+      >
+        <!-- Center Text -->
+        <div class="text-center mt-auto">
+          <h1 class="text-lg font-bold">
+            {{ "ESTABLISHING_SHARJAH" | translate }}
+          </h1>
+        </div>
+
+        <!-- Bottom Text -->
+        <div class="text-center mb-8">
+          <p class="text-md mt-2">{{ "THERE_MANY" | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-16 bg-white">
+    <div class="mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div>
+          <h2 class="text-gray text-sm font-bold uppercase tracking-wide">
+            {{ "OUR_VISION" | translate }}
+          </h2>
+          <h1 class="md:text-36 font-bold text-gray-800 leading-tight mt-2">
+            {{ "ONE_GOVERNMENT" | translate }}
+          </h1>
+          <p class="text-gray text-sm leading-relaxed mt-4">
+            {{ "LOREM_IPSUM" | translate }}
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div class="flex items-start space-x-4 rtl:space-x-reverse">
+              <img
+                src="../assets/images/Rectangle 5.png"
+                alt="Shk. Saud Al Qasimi"
+                class="w-21 h-21 object-cover shadow-lg"
+              />
+              <div class="py-13">
+                <div class="w-12 h-1 bg-green-100 mb-2"></div>
+                <p class="text-sm font-bold text-gray-800">
+                  {{ "SHK_SAUD" | translate }}
+                </p>
+                <p class="text-gray text-xs">
+                  {{ "DIRECTOR_GENERAL" | translate }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Second Profile -->
+            <div class="flex items-start space-x-4 rtl:space-x-reverse">
+              <img
+                src="../assets/images/Mask group.png"
+                alt="Eng. Lamia Al Shamsi"
+                class="w-21 h-21 object-cover shadow-lg"
+              />
+              <div class="py-13">
+                <div class="w-12 h-1 bg-green-100 mb-2"></div>
+                <p class="text-sm font-bold text-gray-800">
+                  {{ "ENG_LAMIA" | translate }}
+                </p>
+                <p class="text-gray text-xs">
+                  {{ "DIRECTOR_OF_SHARJAH" | translate }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="grid items-center justify-center">
+          <div class="py-13">
+            <h3 class="text-sm font-medium text-gray">
+              {{ "PROUD_TO_SERVE" | translate }}
+            </h3>
+          </div>
+          <div class="relative mt-4">
+            <!-- Image -->
+            <img
+              src="../assets/images/190.png"
+              alt="190"
+              class="object-contain"
+            />
+          </div>
+          <p class="text-xl text-gray-700 font-semibold mt-4 text-center">
+            {{ "GOVERNMENT_DEPARTMENTS" | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="relative py-16 bg-white hidden md:block">
+    <div class="mx-auto px-12">
+      <div
+        class="grid grid-cols-1 md:grid-cols-1 gap-8 items-center justify-center"
+      >
+        <div class="flex flex-col justify-center items-center">
+          <h2 class="text-gray text-sm font-bold uppercase tracking-wide">
+            {{ "SERVICES_SOLUTIONS" | translate }}
+          </h2>
+          <h1
+            class="text-xl md:text-2xl font-bold text-gray-800 leading-tight mt-2"
+          >
+            {{ "ONE_CONNECTED" | translate }}
+          </h1>
+          <div class="lg:flex lg:gap-x-12 mt-6">
+            <a
+              href="#"
+              class="text-sm font-semibold text-gray active:bg-green-200 active:text-white hover:bg-green-200 hover:text-white px-4 py-2 rounded-full"
+              >{{ "ALL" | translate }}</a
+            >
+            <a
+              href="#"
+              class="text-sm font-semibold text-gray active:bg-green-200 active:text-white hover:bg-green-200 hover:text-white px-4 py-2 rounded-full"
+              >{{ "DIGITAL_INFR" | translate }}</a
+            >
+            <a
+              href="#"
+              class="text-sm font-semibold text-gray active:bg-green-200 active:text-white hover:bg-green-200 hover:text-white px-4 py-2 rounded-full"
+              >{{ "OPERATIONS" | translate }}</a
+            >
+            <a
+              href="#"
+              class="text-sm font-semibold text-gray active:bg-green-200 active:text-white hover:bg-green-200 hover:text-white px-4 py-2 rounded-full"
+              >{{ "GOVERNMENT" | translate }}</a
+            >
+            <a
+              href="#"
+              class="text-sm font-semibold text-gray active:bg-green-200 active:text-white hover:bg-green-200 hover:text-white px-4 py-2 rounded-full"
+              >{{ "TRAINING" | translate }}</a
+            >
+          </div>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6 lg:w-70 md:w-70"
+          >
+            <!-- Card -->
+            <div
+              class="border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+            >
+              <div
+                class="flex items-center justify-between space-x-4 mb-4 rtl:space-x-reverse"
+              >
+                <!-- Title -->
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {{ "INRFRASTRUCTURE" | translate }}
+                </h3>
+
+                <div class="text-green-200">
+                  <i class="fas fa-users md:text-6xl"></i>
+                </div>
+              </div>
+              <!-- Description -->
+              <p class="text-gray-500 text-sm">
+                {{ "LOREM_SMALL" | translate }}
+              </p>
+            </div>
+            <div
+              class="border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+            >
+              <div
+                class="flex items-center justify-between space-x-4 mb-4 rtl:space-x-reverse"
+              >
+                <!-- Title -->
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {{ "INRFRASTRUCTURE" | translate }}
+                </h3>
+
+                <div class="text-green-200">
+                  <i class="fas fa-users md:text-6xl"></i>
+                </div>
+              </div>
+              <!-- Description -->
+              <p class="text-gray-500 text-sm">
+                {{ "LOREM_SMALL" | translate }}
+              </p>
+            </div>
+            <div
+              class="border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+            >
+              <div
+                class="flex items-center justify-between space-x-4 mb-4 rtl:space-x-reverse"
+              >
+                <!-- Title -->
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {{ "INRFRASTRUCTURE" | translate }}
+                </h3>
+
+                <div class="text-green-200">
+                  <i class="fas fa-users md:text-6xl"></i>
+                </div>
+              </div>
+              <!-- Description -->
+              <p class="text-gray-500 text-sm">
+                {{ "LOREM_SMALL" | translate }}
+              </p>
+            </div>
+            <div
+              class="border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+            >
+              <div
+                class="flex items-center justify-between space-x-4 mb-4 rtl:space-x-reverse"
+              >
+                <!-- Title -->
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {{ "INRFRASTRUCTURE" | translate }}
+                </h3>
+
+                <div class="text-green-200">
+                  <i class="fas fa-users md:text-6xl"></i>
+                </div>
+              </div>
+              <!-- Description -->
+              <p class="text-gray-500 text-sm">
+                {{ "LOREM_SMALL" | translate }}
+              </p>
+            </div>
+          </div>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6 lg:w-70 md:w-70"
+          >
+            <!-- Card -->
+            <div
+              class="border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+            >
+              <div
+                class="flex items-center justify-between space-x-4 mb-4 rtl:space-x-reverse"
+              >
+                <!-- Title -->
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {{ "INRFRASTRUCTURE" | translate }}
+                </h3>
+
+                <div class="text-green-200">
+                  <i class="fas fa-users md:text-6xl"></i>
+                </div>
+              </div>
+              <!-- Description -->
+              <p class="text-gray-500 text-sm">
+                {{ "LOREM_SMALL" | translate }}
+              </p>
+            </div>
+            <div
+              class="border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+            >
+              <div
+                class="flex items-center justify-between space-x-4 mb-4 rtl:space-x-reverse"
+              >
+                <!-- Title -->
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {{ "INRFRASTRUCTURE" | translate }}
+                </h3>
+
+                <div class="text-green-200">
+                  <i class="fas fa-users md:text-6xl"></i>
+                </div>
+              </div>
+              <!-- Description -->
+              <p class="text-gray-500 text-sm">
+                {{ "LOREM_SMALL" | translate }}
+              </p>
+            </div>
+            <div
+              class="border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+            >
+              <div
+                class="flex items-center justify-between space-x-4 mb-4 rtl:space-x-reverse"
+              >
+                <!-- Title -->
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {{ "INRFRASTRUCTURE" | translate }}
+                </h3>
+
+                <div class="text-green-200">
+                  <i class="fas fa-users md:text-6xl"></i>
+                </div>
+              </div>
+              <!-- Description -->
+              <p class="text-gray-500 text-sm">
+                {{ "LOREM_SMALL" | translate }}
+              </p>
+            </div>
+            <div
+              class="border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+            >
+              <div
+                class="flex items-center justify-between space-x-4 mb-4 rtl:space-x-reverse"
+              >
+                <!-- Title -->
+                <h3 class="text-lg font-semibold text-gray-800">
+                  {{ "INRFRASTRUCTURE" | translate }}
+                </h3>
+
+                <div class="text-green-200">
+                  <i class="fas fa-users md:text-6xl"></i>
+                </div>
+              </div>
+              <!-- Description -->
+              <p class="text-gray-500 text-sm">
+                {{ "LOREM_SMALL" | translate }}
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-center items-center my-6">
+            <i class="fas fa-plus px-3 text-gray md:text-6xl"></i>
+            <p class="text-xs text-gray">{{ "VIEW_MORE" | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="relative py-16 bg-white hidden md:block">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-gray text-sm font-bold uppercase text-center tracking-wide"
+      >
+        {{ "DOWNLOAD_CENTER" | translate }}
+      </h2>
+      <h1
+        class="text-xl md:text-2xl font-bold text-gray-800 text-center leading-tight mt-2"
+      >
+        {{ "STAY_UPDATED" | translate }}
+      </h1>
+      <div class="space-y-8">
+        <div class="flex items-center bg-white p-4">
+          <div
+            class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-xl"
+          >
+            <i class="fas fa-file-pdf text-gray-1100 md:text-6xl"></i>
+          </div>
+          <div class="ml-4 flex-2">
+            <h3 class="text-lg font-semibold">{{ "CSAM" | translate }}</h3>
+          </div>
+          <div class="ml-4 flex-2">
+            <p class="text-sm text-gray">{{ "VIVAMUS" | translate }}</p>
+          </div>
+          <div class="ml-4 flex-1 text-end">
+            <div class="text-sm text-gray mr-4">{{ "DATE" | translate }}</div>
+          </div>
+          <div class="ml-4 flex-1">
+            <a
+              href="#"
+              class="text-green-200 font-medium flex items-center hover:underline"
+            >
+              <i class="fas fa-download mx-4 text-green-200"></i>
+              {{ "DOWNLOAD" | translate }}
+            </a>
+          </div>
+        </div>
+        <div class="flex items-center bg-white p-4">
+          <div
+            class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-xl"
+          >
+            <i class="fas fa-file-pdf text-gray-1100 md:text-6xl"></i>
+          </div>
+          <div class="ml-4 flex-2">
+            <h3 class="text-lg font-semibold">{{ "CSAM" | translate }}</h3>
+          </div>
+          <div class="ml-4 flex-2">
+            <p class="text-sm text-gray">{{ "VIVAMUS" | translate }}</p>
+          </div>
+          <div class="ml-4 flex-1 text-end">
+            <div class="text-sm text-gray mr-4">{{ "DATE" | translate }}</div>
+          </div>
+          <div class="ml-4 flex-1">
+            <a
+              href="#"
+              class="text-green-200 font-medium flex items-center hover:underline"
+            >
+              <i class="fas fa-download mx-4 text-green-200"></i>
+              {{ "DOWNLOAD" | translate }}
+            </a>
+          </div>
+        </div>
+        <div class="flex items-center bg-white p-4">
+          <div
+            class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-xl"
+          >
+            <i class="fas fa-file-pdf text-gray-1100 md:text-6xl"></i>
+          </div>
+          <div class="ml-4 flex-2">
+            <h3 class="text-lg font-semibold">{{ "CSAM" | translate }}</h3>
+          </div>
+          <div class="ml-4 flex-2">
+            <p class="text-sm text-gray">{{ "VIVAMUS" | translate }}</p>
+          </div>
+          <div class="ml-4 flex-1 text-end">
+            <div class="text-sm text-gray mr-4">{{ "DATE" | translate }}</div>
+          </div>
+          <div class="ml-4 flex-1">
+            <a
+              href="#"
+              class="text-green-200 font-medium flex items-center hover:underline"
+            >
+              <i class="fas fa-download mx-4 text-green-200"></i>
+              {{ "DOWNLOAD" | translate }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-16 bg-white lg:hidden md:hidden 2xl:hidden block">
+    <div class="text-center mb-8">
+      <h2 class="text-lg font-bold text-gray">
+        {{ "SERVICES_SOLUTIONS" | translate }}
+      </h2>
+      <h1 class="text-2xl font-extrabold text-gray-900">
+        {{ "ONE_CONNECTED" | translate }}
+      </h1>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap justify-center gap-2 mb-6">
+      <button
+        class="px-4 py-2 text-sm font-medium text-gray active:bg-green-200 active:text-white rounded-full"
+      >
+        {{ "ALL" | translate }}
+      </button>
+      <button
+        class="px-4 py-2 text-sm font-medium text-gray active:bg-green-200 active:text-white rounded-full"
+      >
+        {{ "DIGITAL_INFR" | translate }}
+      </button>
+      <button
+        class="px-4 py-2 text-sm font-medium text-gray active:bg-green-200 active:text-white rounded-full"
+      >
+        {{ "OPERATIONS" | translate }}
+      </button>
+      <button
+        class="px-4 py-2 text-sm font-medium text-gray active:bg-green-200 active:text-white rounded-full"
+      >
+        {{ "GOVERNMENT" | translate }}
+      </button>
+      <button
+        class="px-4 py-2 text-sm font-medium text-gray active:bg-green-200 active:text-white rounded-full"
+      >
+        {{ "TRAINING" | translate }}
+      </button>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div
+        class="p-6 mx-2 border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div class="flex items-start justify-start w-16 h-16 mb-4">
+          <i class="fas fa-users text-green-200 text-2xl"></i>
+        </div>
+        <h3 class="text-sm font-semibold">
+          {{ "INRFRASTRUCTURE" | translate }}
+        </h3>
+      </div>
+      <div
+        class="p-6 mx-2 bg-white border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div class="flex items-start justify-start w-16 h-16 mb-4">
+          <i class="fas fa-users text-green-200 text-2xl"></i>
+        </div>
+        <h3 class="text-sm font-semibold">
+          {{ "INRFRASTRUCTURE" | translate }}
+        </h3>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4 my-4">
+      <div
+        class="p-6 mx-2 border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div class="flex items-start justify-start w-16 h-16 mb-4">
+          <i class="fas fa-users text-green-200 text-2xl"></i>
+        </div>
+        <h3 class="text-sm font-semibold">
+          {{ "INRFRASTRUCTURE" | translate }}
+        </h3>
+      </div>
+      <div
+        class="p-6 mx-2 bg-white border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div class="flex items-start justify-start w-16 h-16 mb-4">
+          <i class="fas fa-users text-green-200 text-2xl"></i>
+        </div>
+        <h3 class="text-sm font-semibold">
+          {{ "INRFRASTRUCTURE" | translate }}
+        </h3>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div
+        class="p-6 mx-2 border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div class="flex items-start justify-start w-16 h-16 mb-4">
+          <i class="fas fa-users text-green-200 text-2xl"></i>
+        </div>
+        <h3 class="text-sm font-semibold">
+          {{ "INRFRASTRUCTURE" | translate }}
+        </h3>
+      </div>
+      <div
+        class="p-6 mx-2 bg-white border border-gray rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div class="flex items-start justify-start w-16 h-16 mb-4">
+          <i class="fas fa-users text-green-200 text-2xl"></i>
+        </div>
+        <h3 class="text-sm font-semibold">
+          {{ "INRFRASTRUCTURE" | translate }}
+        </h3>
+      </div>
+    </div>
+
+    <div class="text-center mt-6">
+      <button
+        class="px-6 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-full"
+      >
+        + {{ "VIEW_MORE" | translate }}
+      </button>
+    </div>
+  </section>
+
+  <section class="relative py-16 bg-white lg:hidden md:hidden 2xl:hidden block">
+    <div class="px-4">
+      <div class="text-center mb-8">
+        <h2 class="text-sm font-avenirHv uppercase tracking-wider text-gray">
+          {{ "DOWNLOAD_CENTER" | translate }}
+        </h2>
+        <h1 class="text-lg font-avenirHv uppercase text-gray-900">
+          {{ "STAY_UPDATED" | translate }}
+        </h1>
+      </div>
+
+      <div class="space-y-4">
+        <div class="flex flex-row justify-center items-center">
+          <div class="basis-1/4">
+            <i class="fas fa-file-pdf text-gray-1100 text-xl"></i>
+          </div>
+          <div class="basis-1/2">
+            <h3 class="text-sm font-avenirHv">{{ "CSAM" | translate }}</h3>
+          </div>
+        </div>
+        <div class="flex flex-row justify-center items-center">
+          <div class="basis-7/0">
+            <p class="text-xs font-avenirMd text-gray">
+              {{ "VIVAMUS" | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-row justify-end items-center">
+          <p class="text-xs font-avenirMd text-gray mt-2">
+            {{ "DATE" | translate }}
+          </p>
+        </div>
+        <div class="flex flex-row justify-start items-center">
+          <a
+            href="#"
+            class="text-green-200 text-xs font-avenirMd flex items-center hover:underline"
+          >
+            <i class="fas fa-download mx-4 text-green-200"></i>
+            {{ "DOWNLOAD" | translate }}
+          </a>
+        </div>
+      </div>
+
+      <div class="space-y-4 my-8">
+        <div class="flex flex-row justify-center items-center">
+          <div class="basis-1/4">
+            <i class="fas fa-file-pdf text-gray-1100 text-xl"></i>
+          </div>
+          <div class="basis-1/2">
+            <h3 class="text-sm font-avenirHv">{{ "CSAM" | translate }}</h3>
+          </div>
+        </div>
+        <div class="flex flex-row justify-center items-center">
+          <div class="basis-7/0">
+            <p class="text-xs font-avenirMd text-gray">
+              {{ "VIVAMUS" | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-row justify-end items-center">
+          <p class="text-xs font-avenirMd text-gray mt-2">
+            {{ "DATE" | translate }}
+          </p>
+        </div>
+        <div class="flex flex-row justify-start items-center">
+          <a
+            href="#"
+            class="text-green-200 text-xs font-avenirMd flex items-center hover:underline"
+          >
+            <i class="fas fa-download mx-4 text-green-200"></i>
+            {{ "DOWNLOAD" | translate }}
+          </a>
+        </div>
+      </div>
+
+      <div class="space-y-4 my-8">
+        <div class="flex flex-row justify-center items-center">
+          <div class="basis-1/4">
+            <i class="fas fa-file-pdf text-gray-1100 text-xl"></i>
+          </div>
+          <div class="basis-1/2">
+            <h3 class="text-sm font-avenirHv">{{ "CSAM" | translate }}</h3>
+          </div>
+        </div>
+        <div class="flex flex-row justify-center items-center">
+          <div class="basis-7/0">
+            <p class="text-xs font-avenirMd text-gray">
+              {{ "VIVAMUS" | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-row justify-end items-center">
+          <p class="text-xs font-avenirMd text-gray mt-2">
+            {{ "DATE" | translate }}
+          </p>
+        </div>
+        <div class="flex flex-row justify-start items-center">
+          <a
+            href="#"
+            class="text-green-200 text-xs font-avenirMd flex items-center hover:underline"
+          >
+            <i class="fas fa-download mx-4 text-green-200"></i>
+            {{ "DOWNLOAD" | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-6 mt-8 hidden md:block">
+    <div class="mx-auto px-12">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+      >
+        <div class="text-center md:text-left">
+          <img
+            src="../assets/images/Logo.png"
+            alt="Government of Sharjah Logo"
+            class="h-12 mx-auto md:mx-0"
+          />
+        </div>
+        <nav class="text-center md:text-right">
+          <ul
+            class="flex flex-wrap justify-center md:justify-end space-x-4 text-sm text-gray-600 rtl:space-x-reverse"
+          >
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "HOME" | translate
+              }}</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "OUR_VISION" | translate
+              }}</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "OUR_SCOPE" | translate
+              }}</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "SERVICE_SOLUTIONS" | translate
+              }}</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "INTIATIVES" | translate
+              }}</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "DOWNLOAD_CENTER" | translate
+              }}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div
+        class="flex justify-between items-center md:justify-between mt-8 space-x-4 rtl:space-x-reverse"
+      >
+        <div>
+          <p class="text-sm text-gray mt-2">
+            {{ "COPYRIGHT_RESERVED" | translate }}
+          </p>
+        </div>
+        <div class="flex flex-row gap-6">
+          <p class="text-sm text-gray">
+            {{ "FOLLOW_US" | translate }}
+          </p>
+          <a href="#" class="text-gray hover:text-gray-800">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-gray hover:text-gray-800">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="text-gray hover:text-gray-800">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="#" class="text-gray hover:text-gray-800">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <footer class="py-6 mt-8 lg:hidden md:hidden 2xl:hidden block">
+    <div class="mx-auto px-12">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+      >
+        <div class="text-center md:text-left">
+          <img
+            src="../assets/images/Logo.png"
+            alt="Government of Sharjah Logo"
+            class="h-12 mx-auto md:mx-0"
+          />
+        </div>
+        <nav class="text-center md:text-right">
+          <ul
+            class="flex flex-wrap justify-center md:justify-end space-x-4 text-sm text-gray-600 rtl:space-x-reverse"
+          >
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "HOME" | translate
+              }}</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "OUR_VISION" | translate
+              }}</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "OUR_SCOPE" | translate
+              }}</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "SERVICE_SOLUTIONS" | translate
+              }}</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "INTIATIVES" | translate
+              }}</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-800">{{
+                "DOWNLOAD_CENTER" | translate
+              }}</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="text-center">
+          <p class="text-sm text-gray mt-2">
+            {{ "COPYRIGHT_RESERVED" | translate }}
+          </p>
+        </div>
+        <div class="flex flex-row gap-6">
+          <p class="text-sm text-gray">
+            {{ "FOLLOW_US" | translate }}
+          </p>
+          <a href="#" class="text-gray hover:text-gray-800">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-gray hover:text-gray-800">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="text-gray hover:text-gray-800">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="#" class="text-gray hover:text-gray-800">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
